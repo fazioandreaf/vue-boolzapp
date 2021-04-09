@@ -87,17 +87,14 @@ function init(){
                     ],
                 },
             ],
-            activeName:'',
-            activeImg:'',
+            activeChat:0, 
         },
         'methods':{
             insertHeaderRight:function(indice){
-                this.activeName=this.contacts[indice].name;
-                this.activeImg=this.contacts[indice].avatar;
-                this.prova;
+                this.activeChat=indice;
             },
             insertChat: function(){
-                console.log('ciao');
+                ;
             }
         }
         

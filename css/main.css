@@ -155,9 +155,23 @@ body{
 .chatUtent-prevue{
     flex: 1;
 }
-
-
 .chatUtent-features, .chatUtent-prevue {
     display: flex;
     flex-direction: column;
+    
+}
+.chat {
+    display: flex;
+    background-color: white;
+
+    margin: 10px;
+    padding: 0.8em;
+}
+.chatSent{
+    border-radius: 2em 0 2em 2em;
+    position: relative;
+    left:15%;
+    text-align: right;
+    background-color: #dcf8c6;
+
 }

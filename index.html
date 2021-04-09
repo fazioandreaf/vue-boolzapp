@@ -46,7 +46,7 @@
                         </div>
                         <div class="chatUtent-prevue">
                             <span>{{elem.name}}</span>
-                            <span>{{elem.messages[1].text}}</span>
+                            <span>{{elem.messages[elem.messages.length - 1].text}}</span>
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date.substring(11,16)}}</span>
@@ -58,15 +58,19 @@
             <div class="sideRight">
                 <div class="navInside">
                     <div class="navInside_left">
-                        <img :src="activeImg" class="circleImg">                 
-                        <span>{{ activeName }}</span>
+                        <img :src="contacts[activeChat].avatar" class="circleImg">                 
+                        <span>{{ contacts[activeChat].name }}</span>
                     </div>
                     <div class="navInside_right">
                         <i class="fas fa-times"></i>
                         <i class="fas fa-times"></i>
                     </div>
                 </div>
-                <div class="mainChat" v-for="elem in contacts">{{contacts[elem].messages}}</div>
+                <div class="mainChat"  >
+                    <span class="chat chatSent" v-for="elem in contacts[activeChat].messages">
+                        {{elem.text}}
+                    </span>
+                </div>
                 <div class="textChat">
                     <i class="fas fa-times-circle"></i>
                     <i class="fas fa-times-circle"></i>

@@ -40,10 +40,10 @@
                     </div>    
                 </div>
                 <div class="chatList">
-                    <div v-for="elem in contacts" class="chatUtent">
-                        <div class="chatUtent_img" @click="log">
+                    <div v-for="(elem,index) in contacts" class="chatUtent" @click="log(index)">
+                        <div class="chatUtent_img" >
 
-                            <img :src="elem.avatar" >
+                            <img class="circleImg" :src="elem.avatar" >
                         </div>
                         <div class="chatUtent-prevue">
                             <span>{{elem.name}}</span>
@@ -59,8 +59,8 @@
             <div class="sideRight">
                 <div class="navInside">
                     <div class="navInside_left">
-                        <img src="img/1.png" alt="">                 
-                        <span>Nome della chat</span>
+                        <img :src="activeImg" class="circleImg">                 
+                        <span>{{ activeName }}</span>
                     </div>
                     <div class="navInside_right">
                         <i class="fas fa-times"></i>

@@ -87,10 +87,15 @@ function init(){
                     ],
                 },
             ],
+            activeName:'',
+            activeImg:'',
         },
         'methods':{
-            log:function(){
-                console.log(this.contacts[0].messages.length);
+            log:function(indice){
+                this.activeName=this.contacts[indice].name
+                this.activeImg=this.contacts[indice].avatar
+                console.log(activeName);
+                return activeName
             }
         }
         

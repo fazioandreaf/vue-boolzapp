@@ -41,13 +41,13 @@
                 </div>
                 <div class="chatList">
                     <div v-for="elem in contacts" class="chatUtent">
-                        <div class="chatUtent_img">
+                        <div class="chatUtent_img" @click="log">
 
                             <img :src="elem.avatar" >
                         </div>
                         <div class="chatUtent-prevue">
                             <span>{{elem.name}}</span>
-                            <span>{{elem.messages[0].text}}</span>
+                            <span>{{elem.messages[contacts[].messages.length].text}}</span>
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date}}</span>

@@ -87,6 +87,11 @@ function init(){
                     ],
                 },
             ],
+        },
+        'methods':{
+            log:function(){
+                console.log(this.contacts[0].messages.length);
+            }
         }
         
     })

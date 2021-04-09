@@ -134,6 +134,7 @@ body{
     padding: 10px;
     display: flex;
     border-bottom: 1px solid #ededed;
+    cursor: pointer;
 }
 .chatUtent_img{
     align-self: center;
@@ -146,7 +147,7 @@ body{
     height: 100%;
     width: 100%;
 }
-.chatUtent:hover{
+.chatUtent:hover,.chatUtent:active{
     background-color: #ededed;
 }
 .chatUtent-prevue{

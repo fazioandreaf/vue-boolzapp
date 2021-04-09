@@ -6,6 +6,7 @@
 }
 body{
     font-family: 'Robot',sans-serif;
+    background-color: #ededed;
 }
 .up{
     position: fixed;
@@ -21,24 +22,24 @@ body{
     width: 90%;
     margin: 0 auto;
     background-color: white;
-    box-shadow: 5px 0px 5px grey;
+    box-shadow: 5px 0px 10px grey;
     height: calc(100vh - 20px);
 }
 .sideLeft{
     flex:1;
     background-color: grey;
-    border-right:1px solid grey;
+    border-right:1px solid #919191;
 }
 .sideRight{
     flex:2;
-    background-color: red;
+    position: relative;
 }
 .navInside{
     display: flex;
     align-items:center ;
     justify-content: space-between;
     background-color: #ededed;
-    min-height:50px ;
+    height:50px ;
 }
 .navInside *{
     display: flex;
@@ -100,4 +101,34 @@ body{
 }
 .search_input input:focus{
  outline:none
+}
+.chatList{
+    background-color:white ;
+    height: calc(100% - 180px);
+}
+.textChat{
+    position: relative;
+    display: flex;
+    height: 50px;
+    background-color: #ededed;
+}
+.textChat>*{
+    align-self: center;
+    padding:5px;
+    color:#919191;
+}
+.textChat>input{
+    flex:1;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    padding:0 15px ;
+    
+}
+.mainChat{
+    position: relative;
+    height: calc(100% - 100px);
+    background-image: url(../img/sfondo-chat.png);
+    background-size: contain;
+
 }

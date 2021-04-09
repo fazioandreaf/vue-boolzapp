@@ -49,6 +49,9 @@ body{
 .navInside img{
     max-height: 50px;
 }
+.navInside i{
+    color: #919191;
+}
 .notify{
     display: flex;
     background-color: #9de1fe;
@@ -74,4 +77,27 @@ body{
     justify-content: center;
 
 }
+.search{
+    height: 50px;
+    background-color: #ededed;
+    padding: 5px 10px;
+}
+.search_input{
+    display: flex;
+    background-color: white;
+    border-radius: 25px;
+    height: 100%;
+}
+.search_input>*{
+    align-self: center;
+    padding: 0 5px;
+    color:#919191;
 
+}
+.search_input input{
+    flex:1;
+    border:none;
+}
+.search_input input:focus{
+ outline:none
+}

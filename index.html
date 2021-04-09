@@ -33,16 +33,15 @@
                         <span>Attiva notifiche desktop</span>
                     </div>
                 </div>
-                <div class="search">
+                <div class="search" @click="prova">
                     <div class="search_input">
                         <i class="fas fa-times-circle"></i>
                         <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
                     </div>    
                 </div>
                 <div class="chatList">
-                    <div v-for="(elem,index) in contacts" class="chatUtent" @click="log(index)">
+                    <div v-for="(elem,index) in contacts" class="chatUtent" @click="insertHeaderRight(index)">
                         <div class="chatUtent_img" >
-
                             <img class="circleImg" :src="elem.avatar" >
                         </div>
                         <div class="chatUtent-prevue">
@@ -50,8 +49,8 @@
                             <span>{{elem.messages[1].text}}</span>
                         </div>
                         <div class="chatUtent-features">
-                            <span>{{elem.messages[0].date}}</span>
-                            <span>mute</span>
+                            <span>{{elem.messages[0].date.substring(11,16)}}</span>
+                            <span><i class="fas fa-volume-mute"></i></span>
                         </div>
                     </div>
                 </div>

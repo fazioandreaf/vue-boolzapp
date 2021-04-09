@@ -91,11 +91,13 @@ function init(){
             activeImg:'',
         },
         'methods':{
-            log:function(indice){
-                this.activeName=this.contacts[indice].name
-                this.activeImg=this.contacts[indice].avatar
-                console.log(activeName);
-                return activeName
+            insertHeaderRight:function(indice){
+                this.activeName=this.contacts[indice].name;
+                this.activeImg=this.contacts[indice].avatar;
+                this.prova;
+            },
+            prova: function(){
+                console.log('ciao');
             }
         }
         

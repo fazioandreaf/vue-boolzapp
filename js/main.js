@@ -88,14 +88,14 @@ function init(){
                 },
             ],
             activeChat:0, 
+            recive:'chatRecive',
+            sent:'chatSent',
         },
         'methods':{
             insertHeaderRight:function(indice){
                 this.activeChat=indice;
             },
-            insertChat: function(){
-                ;
-            }
+
         }
         
     })

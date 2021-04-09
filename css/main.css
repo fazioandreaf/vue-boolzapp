@@ -131,6 +131,7 @@ body{
     flex-direction: column-reverse;
     background-image: url(../img/sfondo-chat.png);
     background-size: contain;
+    align-items: flex-end;
 }
 .chatUtent{
     padding: 10px;
@@ -162,16 +163,25 @@ body{
 }
 .chat {
     display: flex;
-    background-color: white;
-
     margin: 10px;
     padding: 0.8em;
+    max-width: 80%;
 }
 .chatSent{
     border-radius: 2em 0 2em 2em;
-    position: relative;
-    left:15%;
-    text-align: right;
     background-color: #dcf8c6;
-
+    justify-content: flex-end;
 }
+.chatRecive{
+    background-color: white;
+    border-radius: 0em 2em 2em 2em;
+    align-self: flex-start;
+}
+.chatData{
+    flex-basis: 70px;
+    padding-left: 10px;
+    color: #87987a;
+    font-size: 0.7em;
+    align-self: end;
+}
+

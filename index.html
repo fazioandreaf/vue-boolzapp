@@ -67,9 +67,14 @@
                     </div>
                 </div>
                 <div class="mainChat"  >
-                    <span class="chat chatSent" v-for="elem in contacts[activeChat].messages">
-                        {{elem.text}}
-                    </span>
+                     <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
+                    <span v-if="{{elem.status}}=='received'" :class="recive"   class="chat chatSent" v-for="elem in contacts[activeChat].messages">
+                        {{elem.text}}{{elem.status}} 
+                        <span class="chatData">{{elem.date.substring(11,16)}}
+                            <i class="fas fa-check-double"></i>
+                        </span>
+                    </span> 
+                    <span v-else :class="sent">ciao</span>
                 </div>
                 <div class="textChat">
                     <i class="fas fa-times-circle"></i>

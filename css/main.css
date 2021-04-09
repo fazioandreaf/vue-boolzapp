@@ -127,6 +127,8 @@ body{
 .mainChat{
     position: relative;
     height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column-reverse;
     background-image: url(../img/sfondo-chat.png);
     background-size: contain;
 }

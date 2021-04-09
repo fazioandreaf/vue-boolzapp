@@ -96,7 +96,7 @@ function init(){
                 this.activeImg=this.contacts[indice].avatar;
                 this.prova;
             },
-            prova: function(){
+            insertChat: function(){
                 console.log('ciao');
             }
         }

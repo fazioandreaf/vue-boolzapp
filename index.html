@@ -12,54 +12,72 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div class="up"></div>
-    <div class="container">
-        <div class="sideLeft">
-            <div class="navInside">
-                <div class="navInside_left">
-                    <img src="img/1.png" alt="">
+    <div id="app">
+        <div class="up"></div>
+        <div class="container">
+            <div class="sideLeft">
+                <div class="navInside">
+                    <div class="navInside_left">
+                        <img src="img/1.png" alt="">
+                    </div>
+                    <div class="navInside_right">
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
+                    </div>
                 </div>
-                <div class="navInside_right">
-                    <i class="fas fa-times"></i>
-                    <i class="fas fa-times"></i>
-                    <i class="fas fa-times"></i>
+                <div class="notify">
+                    <i class="fas fa-music"></i>
+                    <div>
+                        <span>    Ricevi notifiche di nuovi messaggi</span>
+                        <span>Attiva notifiche desktop</span>
+                    </div>
                 </div>
-            </div>
-            <div class="notify">
-                <i class="fas fa-music"></i>
-                <div>
-                    <span>    Ricevi notifiche di nuovi messaggi</span>
-                    <span>Attiva notifiche desktop</span>
+                <div class="search">
+                    <div class="search_input">
+                        <i class="fas fa-times-circle"></i>
+                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                    </div>    
                 </div>
-            </div>
-            <div class="search">
-                <div class="search_input">
-                    <i class="fas fa-times-circle"></i>
-                    <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
-                </div>    
-            </div>
-            <div class="chatList"></div>
-        </div>
-        <div class="sideRight">
-            <div class="navInside">
-                <div class="navInside_left">
-                    <img src="img/1.png" alt="">                 
-                    <span>Nome della chat</span>
-                </div>
-                <div class="navInside_right">
-                    <i class="fas fa-times"></i>
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-            <div class="mainChat"></div>
-            <div class="textChat">
-                <i class="fas fa-times-circle"></i>
-                <i class="fas fa-times-circle"></i>
-                <input type="text" name="" id="" placeholder="Scrivi un messaggio">
-                <i class="fas fa-times-circle"></i>
+                <div class="chatList">
+                    <div v-for="elem in contacts" class="chatUtent">
+                        <div class="chatUtent_img">
 
+                            <img :src="elem.avatar" >
+                        </div>
+                        <div class="chatUtent-prevue">
+                            <span>{{elem.name}}</span>
+                            <span>{{elem.messages[0].text}}</span>
+                        </div>
+                        <div class="chatUtent-features">
+                            <span>{{elem.messages[0].date}}</span>
+                            <span>mute</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sideRight">
+                <div class="navInside">
+                    <div class="navInside_left">
+                        <img src="img/1.png" alt="">                 
+                        <span>Nome della chat</span>
+                    </div>
+                    <div class="navInside_right">
+                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="mainChat"></div>
+                <div class="textChat">
+                    <i class="fas fa-times-circle"></i>
+                    <i class="fas fa-times-circle"></i>
+                    <input type="text" name="" id="" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-times-circle"></i>
+    
+                </div>
             </div>
         </div>
+
     </div>
 </body>
 </html>

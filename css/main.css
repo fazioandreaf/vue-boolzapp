@@ -148,7 +148,6 @@ body{
     padding:0 15px ;
 }
 .mainChat{
-    position: relative;
     height: calc(100% - 100px);
     display: flex;
     flex-direction: column-reverse;
@@ -197,16 +196,18 @@ body{
 
 }
 .chat {
+    position: relative;
     display: flex;
-    margin: 3px;
+    position: relative;
+    margin: 20px;
     padding: 0.8em;
     max-width: 80%;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    word-break: break-word
 }
 .sent{
     border-radius: 1em 0 1em 1em;
     background-color: #dcf8c6;
-    justify-content: flex-end;
 }
 .received:last-of-type, .sent:last-of-type{
     margin-bottom: 30px;
@@ -216,13 +217,36 @@ body{
     border-radius: 0em 1em 1em 1em;
     align-self: flex-start;
 }
-.chatData{
-    flex-basis: 70px;
+.sent .chat_text i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%,-36%);
+    color: #dcf8c6;
+    font-size: 2.5rem;
+}
+.received .chat_text i{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%,-36%);
+    color: white;
+    font-size: 2.5rem;
+
+
+}
+.chat .chatData{
+    
     padding-left: 10px;
     color: #87987a;
     font-size: 0.7em;
-    align-self: end;
+    align-self: flex-end;
+
 }
+.chat .chat_text{
+    flex: 9;
+}
+
 .sfondo{ 
     position: relative;
     flex: 1.3;

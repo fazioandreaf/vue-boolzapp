@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- @click="contextMenuChatRemove" -->
-    <div id="app" 
+    <div id="app" @click="contextMenuChatRemove"
     >
         <div class="up"></div>
         <div class="container">
@@ -77,7 +77,7 @@
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
                      <span  
-                     @click.right="contextMenuChat(),log(index)"
+                     @click.right="addBooleanOnContact(index)"
                      :class="elem.status" 
                      v-for="(elem,index) in contacts[activeChat].messages"
                      class="chat">
@@ -88,7 +88,7 @@
                         <span class="chatData">{{elem.date.substring(11,16)}}
                             <i class="fas fa-check"></i>
                         </span>
-                        <div class="contextMenu-css" v-if="contextMenu">
+                        <div class="contextMenu-css" v-if="contacts[activeChat].messages[index].contextMenu">
                          <ul>
                              <li>Message info</li>
                              <li @click="delateMessage(index)"> Delate Message</li>

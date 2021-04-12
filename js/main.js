@@ -88,6 +88,7 @@ function init(){
                 },
             ],
             activeChat:-1, 
+            activeMessage:0, 
             recive:'chatRecive',
             sent:'chatSent',
             search:'',
@@ -103,7 +104,6 @@ function init(){
                 text: '',
                 status: 'received',
             },
-            contextMenu:false,
             top:'0px',
             left:'0px',
 
@@ -137,11 +137,20 @@ function init(){
             delayMessages:function(){
                 setTimeout(this.answareMessages,1000);            
             },
-            contextMenuChat:function(){
-                this.contextMenu =!this.contextMenu;
+            addBooleanOnContact:function(index){
+                activeMessage=index;
+                const element=this.contacts[this.activeChat];
+                element.messages[index].contextMenu=true;
+                console.log(this.contacts[this.activeChat]);
             },
+            // contextMenuChat:function(index){
+            //     const element=this.contacts[this.activeChat];
+            //     element.messages[index].contextMenu=true;
+            //     console.log(this.contacts[this.activeChat]);
+                
+            // },
             contextMenuChatRemove:function(){
-                this.contextMenu= false;
+                this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
             },
             delateMessage: function(index){
                 this.contacts[this.activeChat].messages.splice(index);

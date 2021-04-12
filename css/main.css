@@ -167,12 +167,12 @@ body{
     padding: 0.8em;
     max-width: 80%;
 }
-.chatSent{
+.sent{
     border-radius: 2em 0 2em 2em;
     background-color: #dcf8c6;
     justify-content: flex-end;
 }
-.chatRecive{
+.received{
     background-color: white;
     border-radius: 0em 2em 2em 2em;
     align-self: flex-start;

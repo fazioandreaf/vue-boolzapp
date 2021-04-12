@@ -21,26 +21,30 @@
                         <img src="img/1.png" alt="">
                     </div>
                     <div class="navInside_right">
-                        <i class="fas fa-times"></i>
-                        <i class="fas fa-times"></i>
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
                 <div class="notify">
-                    <i class="fas fa-music"></i>
+                    <i class="fas fa-bell-slash" @click=(log())></i>
                     <div>
-                        <span>    Ricevi notifiche di nuovi messaggi</span>
+                        <span>Ricevi notifiche di nuovi messaggi</span>
                         <span>Attiva notifiche desktop</span>
                     </div>
                 </div>
                 <div class="search">
-                    <div class="search_input">
+                    <div class="search_input" >
                         <i class="fas fa-times-circle"></i>
-                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search">
                     </div>    
                 </div>
-                <div class="chatList">
-                    <div v-for="(elem,index) in contacts" class="chatUtent" @click="insertHeaderRight(index),insertChat()">
+                <div v-if="" class="chatList">
+                    <div 
+                    v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
+                    v-for="(elem,index) in contacts" 
+                    class="chatUtent" 
+                    @click="insertHeaderRight(index)">
                         <div class="chatUtent_img" >
                             <img class="circleImg" :src="elem.avatar" >
                         </div>
@@ -53,6 +57,8 @@
                             <span><i class="fas fa-volume-mute"></i></span>
                         </div>
                     </div>
+                    <!-- v-if=(prova==contacts.length)
+                    <div v-else>{{prova= prova + 1}}</div> -->
                 </div>
             </div>
             <div class="sideRight">
@@ -62,25 +68,26 @@
                         <span>{{ contacts[activeChat].name }}</span>
                     </div>
                     <div class="navInside_right">
-                        <i class="fas fa-times"></i>
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
-                    <span v-if="{{elem.status}}=='received'" :class="recive"   class="chat chatSent" v-for="elem in contacts[activeChat].messages">
-                        {{elem.text}}{{elem.status}} 
+                    <span  :class="elem.status" class="chat" v-for="elem in contacts[activeChat].messages">
+                        {{elem.text}} 
                         <span class="chatData">{{elem.date.substring(11,16)}}
-                            <i class="fas fa-check-double"></i>
+                            <i class="fas fa-check"></i>
+                            <i class="fas fa-check"></i>
                         </span>
                     </span> 
                     <span v-else :class="sent">ciao</span>
                 </div>
                 <div class="textChat">
-                    <i class="fas fa-times-circle"></i>
-                    <i class="fas fa-times-circle"></i>
-                    <input type="text" name="" id="" placeholder="Scrivi un messaggio">
-                    <i class="fas fa-times-circle"></i>
+                    <i class="fas fa-smile"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <input v-model="newMessage" type="text" name="" id="" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-arrow-alt-circle-up" @click="addMessages(newMessage,'sent'),answareMessages('ok',newMessage)"></i>
     
                 </div>
             </div>

@@ -90,12 +90,50 @@ function init(){
             activeChat:0, 
             recive:'chatRecive',
             sent:'chatSent',
+            search:'',
+            // prova:0,
+            newMessage:'',
+            newMessageObj:{
+                date: '10/01/2020 15:30:55',
+                text: '',
+                status: 'sent',
+            },
+            newMessageObjAns:{
+                date: '10/01/2020 15:30:55',
+                text: '',
+                status: 'received',
+            },
+
         },
+        // mounted: function () {
+        //         setInterval(this.addMessages('ok','received'),5000);
+        // },
+
         'methods':{
             insertHeaderRight:function(indice){
                 this.activeChat=indice;
             },
-
+            log:function(prova){
+                console.log(prova);
+            },
+            
+            addMessages:function(element,stat){ 
+                if(element.length>0){
+                    this.newMessageObj.text=element;
+                    this.newMessageObj.status=stat;
+                    this.contacts[this.activeChat].messages.unshift(this.newMessageObj);
+                    // oppure splice
+                }else console.log('Non hai scritto nessun messaggio');
+            },
+            answareMessages:function(element,question){
+            if(question.length>0){
+                this.newMessageObjAns.text=element;
+                this.contacts[this.activeChat].messages.unshift(this.newMessageObjAns);
+                }
+            },
+            delayMessages:function(){
+                setInterval(this.answareMessages,4000);            
+            },
         }
         
     })

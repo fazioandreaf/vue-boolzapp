@@ -13,8 +13,7 @@
 </head>
 <body>
     <!-- @click="contextMenuChatRemove" -->
-    <div id="app" @click="contextMenuChatRemove"
-    >
+    <div id="app">
         <div class="up"></div>
         <div class="container">
             <div class="sideLeft">
@@ -63,7 +62,7 @@
                     <div v-else>{{prova= prova + 1}}</div> -->
                 </div>
             </div>
-            <div v-if="activeChat>=0" class="sideRight">
+            <div v-if="activeChat>=0" @click="contextMenuChatRemove"class="sideRight">
                 <div class="navInside">
                     <div class="navInside_left">
                         <img :src="contacts[activeChat].avatar" class="circleImg">                 

@@ -141,7 +141,9 @@ function init(){
                 activeMessage=index;
                 const element=this.contacts[this.activeChat];
                 element.messages[index].contextMenu=true;
-                console.log(this.contacts[this.activeChat]);
+                console.log(element);
+                console.log(element.messages[index]);
+
             },
             // contextMenuChat:function(index){
             //     const element=this.contacts[this.activeChat];
@@ -150,6 +152,7 @@ function init(){
                 
             // },
             contextMenuChatRemove:function(){
+                console.log(this.contacts[this.activeChat].messages[this.activeMessage]);
                 this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
             },
             delateMessage: function(index){

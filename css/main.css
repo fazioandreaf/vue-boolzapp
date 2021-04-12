@@ -301,6 +301,7 @@ body{
 }
 .contextMenu-css{
     position: absolute;
+    z-index: 100;
     bottom: 3rem;
     left: 50%;
     background-color: white;

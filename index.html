@@ -35,7 +35,7 @@
                 </div>
                 <div class="search">
                     <div class="search_input" >
-                        <i class="fas fa-times-circle"></i>
+                        <i class="fas fa-search"></i>
                         <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search">
                     </div>    
                 </div>
@@ -49,8 +49,8 @@
                             <img class="circleImg" :src="elem.avatar" >
                         </div>
                         <div class="chatUtent-prevue">
-                            <span>{{elem.name}}</span>
-                            <span>{{elem.messages[0].text}}</span>
+                            <span class="name">{{elem.name}}</span>
+                            <span>{{elem.messages[0].text.substring(0,15)}}<span v-if="elem.messages[0].text.length>15">...</span></span>
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date.substring(11,16)}}</span>

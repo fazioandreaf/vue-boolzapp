@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -25,10 +24,31 @@ body{
     box-shadow: 5px 0px 10px grey;
     height: calc(100vh - 20px);
 }
+@media screen and (max-width:1000px) {
+    .container{
+    width: 100%;
+    top: 0;
+}
+}
+@media screen and (max-width:500px) {
+    .chatUtent> .chatUtent-prevue,.chatUtent>  .chatUtent-features, .sideLeft .notify>div, .search_input>input, .sideLeft .navInside_right{
+        display: none;
+    }
+    .sfondo, .sideRight{
+        flex:1;
+    }
+    .sideLeft{
+        flex: none !important;
+    }
+    .sideLeft .navInside,.sideLeft .search_input {
+        justify-content: center;
+    }
+}
+
+
 .sideLeft{
-    flex:1;
+    flex:1.4;
     background-color: grey;
-    border-right:1px solid #919191;
 }
 .sideRight{
     flex:2;
@@ -53,10 +73,13 @@ body{
 .navInside i{
     color: #919191;
 }
+.sideRight .navInside, .textChat{
+    border-left:1px solid #919191;
+}
 .notify{
     display: flex;
     background-color: #9de1fe;
-    min-height: 60px;
+    height: 80px;
     padding: 5px;
     
 }
@@ -132,12 +155,16 @@ body{
     background-image: url(../img/sfondo-chat.png);
     background-size: contain;
     align-items: flex-end;
+    overflow-y: auto;
 }
 .chatUtent{
     padding: 10px;
     display: flex;
     border-bottom: 1px solid #ededed;
     cursor: pointer;
+}
+.chatUtent>*{
+    margin: 0 5px;
 }
 .chatUtent_img{
     align-self: center;
@@ -156,25 +183,37 @@ body{
 .chatUtent-prevue{
     flex: 1;
 }
+.chatUtent-prevue span:nth-child(2){
+    color: #666666 ;
+}
 .chatUtent-features, .chatUtent-prevue {
     display: flex;
     flex-direction: column;
-    
+}
+.chatUtent-features{
+    text-align: right;
+    color: #666666 ;
+    font-size: 0.8rem;
+
 }
 .chat {
     display: flex;
-    margin: 10px;
+    margin: 3px;
     padding: 0.8em;
     max-width: 80%;
+    flex-wrap: wrap;
 }
 .sent{
-    border-radius: 2em 0 2em 2em;
+    border-radius: 1em 0 1em 1em;
     background-color: #dcf8c6;
     justify-content: flex-end;
 }
+.received:last-of-type, .sent:last-of-type{
+    margin-bottom: 30px;
+}
 .received{
     background-color: white;
-    border-radius: 0em 2em 2em 2em;
+    border-radius: 0em 1em 1em 1em;
     align-self: flex-start;
 }
 .chatData{
@@ -184,7 +223,9 @@ body{
     font-size: 0.7em;
     align-self: end;
 }
-.sfondo{
+.sfondo{ 
+    position: relative;
+    flex: 1.3;
     background-color:#f8f9fa ;
     display: flex;
     flex-direction: column;

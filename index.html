@@ -50,7 +50,7 @@
                         </div>
                         <div class="chatUtent-prevue">
                             <span>{{elem.name}}</span>
-                            <span>{{elem.messages[elem.messages.length - 1].text}}</span>
+                            <span>{{elem.messages[0].text}}</span>
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date.substring(11,16)}}</span>
@@ -61,7 +61,7 @@
                     <div v-else>{{prova= prova + 1}}</div> -->
                 </div>
             </div>
-            <div class="sideRight">
+            <div v-if="activeChat>=0" class="sideRight">
                 <div class="navInside">
                     <div class="navInside_left">
                         <img :src="contacts[activeChat].avatar" class="circleImg">                 
@@ -86,10 +86,22 @@
                 <div class="textChat">
                     <i class="fas fa-smile"></i>
                     <i class="fas fa-paperclip"></i>
-                    <input v-model="newMessage" type="text" name="" id="" placeholder="Scrivi un messaggio">
-                    <i class="fas fa-arrow-alt-circle-up" @click="addMessages(newMessage,'sent'),answareMessages('ok',newMessage)"></i>
+                    <input v-model="newMessage" type="text" v-on:keyUp.enter="addMessages(newMessage,'sent'),delayMessages('ok',newMessage)"
+                    placeholder="Scrivi un messaggio">
+                    <i class="fas fa-arrow-alt-circle-up" @click="addMessages(newMessage,'sent'),delayMessages"></i>
     
                 </div>
+            </div>
+            <div v-else class="sfondo">
+                <img src="img/123.png" >
+                <span class="title">Mantiene il telefono connesso</span>
+                <span>WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</span>
+                <div><i class="fas fa-desktop"></i>
+                Whatsapp è disponibile per Windows. 
+                <a href="">
+                    Scaricala qui  
+                </a>
+            </div>
             </div>
         </div>
 

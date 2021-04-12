@@ -184,4 +184,30 @@ body{
     font-size: 0.7em;
     align-self: end;
 }
+.sfondo{
+    background-color:#f8f9fa ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #888989;
+    padding: 0 10%;
+    text-align: center;
+}
+.sfondo> *{
+    padding: 20px 0;
+}
+.sfondo> img{
+    max-width: 80%;
+}
+.sfondo .title{
+    color:#525252 ;
+    font-size: 38px;
+    font-weight: 300;
+}
+.sfondo span:nth-child(3){
+    font-size: 14px;
+    border-bottom: 1px solid #525252;
+}
+
 

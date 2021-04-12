@@ -87,7 +87,7 @@ function init(){
                     ],
                 },
             ],
-            activeChat:0, 
+            activeChat:-1, 
             recive:'chatRecive',
             sent:'chatSent',
             search:'',
@@ -124,15 +124,16 @@ function init(){
                     this.contacts[this.activeChat].messages.unshift(this.newMessageObj);
                     // oppure splice
                 }else console.log('Non hai scritto nessun messaggio');
+                
             },
-            answareMessages:function(element,question){
-            if(question.length>0){
-                this.newMessageObjAns.text=element;
-                this.contacts[this.activeChat].messages.unshift(this.newMessageObjAns);
-                }
+            answareMessages:function(){
+                    this.newMessageObjAns.text='ok';
+                    this.contacts[this.activeChat].messages.unshift(this.newMessageObjAns);
+                
+                this.newMessage='';
             },
             delayMessages:function(){
-                setInterval(this.answareMessages,4000);            
+                setTimeout(this.answareMessages,1000);            
             },
         }
         

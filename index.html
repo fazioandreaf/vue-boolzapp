@@ -30,7 +30,7 @@
                     <i class="fas fa-bell-slash" @click=(log())></i>
                     <div>
                         <span>Ricevi notifiche di nuovi messaggi</span>
-                        <span>Attiva notifiche desktop</span>
+                        <span>Attiva notifiche desktop <i class="fas fa-chevron-right"></i></span>
                     </div>
                 </div>
                 <div class="search">
@@ -86,11 +86,11 @@
                     <span v-else :class="sent">ciao</span>
                 </div>
                 <div class="textChat">
-                    <i class="fas fa-smile"></i>
+                    <i class="fas fa-grin"></i>
                     <i class="fas fa-paperclip"></i>
                     <input v-model="newMessage" type="text" v-on:keyUp.enter="addMessages(newMessage,'sent'),delayMessages('ok',newMessage)"
                     placeholder="Scrivi un messaggio">
-                    <i class="fas fa-arrow-alt-circle-up" @click="addMessages(newMessage,'sent'),delayMessages"></i>
+                    <i class="fas fa-paper-plane" @click="addMessages(newMessage,'sent'),delayMessages"></i>
     
                 </div>
             </div>

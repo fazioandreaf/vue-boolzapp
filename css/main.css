@@ -73,15 +73,17 @@ body{
 .navInside i{
     color: #919191;
 }
+.navInside_right i{
+    padding: 15px;
+}
 .sideRight .navInside, .textChat{
-    border-left:1px solid #919191;
+    border-left:1px solid #dddddd;
 }
 .notify{
     display: flex;
     background-color: #9de1fe;
     height: 80px;
     padding: 5px;
-    
 }
 .notify>i{
     display: flex;
@@ -97,9 +99,16 @@ body{
 .notify>div{
     padding-left: 10px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+        font-size: 0.9rem;
 
+}
+.notify>div span:nth-child(2){
+    font-size: 0.6rem;
+    color: #666666;
+    margin-top: 3px;
 }
 .search{
     height: 50px;
@@ -128,6 +137,7 @@ body{
 .chatList{
     background-color:white ;
     height: calc(100% - 180px);
+    overflow-y: auto;
 }
 .textChat{
     position: relative;
@@ -137,7 +147,7 @@ body{
 }
 .textChat>*{
     align-self: center;
-    padding:5px;
+    padding:10px;
     color:#919191;
 }
 .textChat>input{
@@ -157,30 +167,33 @@ body{
     overflow-y: auto;
 }
 .chatUtent{
-    padding: 10px;
     display: flex;
-    border-bottom: 1px solid #ededed;
     cursor: pointer;
 }
-.chatUtent>*{
-    margin: 0 5px;
+.chatUtent-features, .chatUtent-prevue{
+    padding: 10px 5px;
 }
 .chatUtent_img{
+    margin: 0 auto;
     align-self: center;
     width: 50px;
     height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .circleImg{
     border-radius: 50%;
     object-fit: cover;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
 }
-.chatUtent:hover,.chatUtent:active{
+.chatUtent:hover,.chatUtent:focus{
     background-color: #ededed;
 }
 .chatUtent-prevue{
     flex: 1;
+    border-bottom: 1px solid #ededed;
 }
 .chatUtent-prevue span:nth-child(2){
     color: #666666 ;
@@ -190,6 +203,7 @@ body{
     flex-direction: column;
 }
 .chatUtent-features{
+    border-bottom: 1px solid #ededed;
     text-align: right;
     color: #666666 ;
     font-size: 0.8rem;
@@ -258,6 +272,7 @@ body{
     color: #888989;
     padding: 0 10%;
     text-align: center;
+    border-bottom:#4adf83 10px solid ;
 }
 .sfondo> *{
     padding: 20px 0;
@@ -274,5 +289,8 @@ body{
     font-size: 14px;
     border-bottom: 1px solid #525252;
 }
-
+.sfondo a{
+    text-decoration: none;
+    color:#07bc4c;
+}
 

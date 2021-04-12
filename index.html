@@ -12,7 +12,7 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" @click="contextMenuChatRemove">
         <div class="up"></div>
         <div class="container">
             <div class="sideLeft">
@@ -74,7 +74,18 @@
                 </div>
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
-                    <span  :class="elem.status" class="chat" v-for="elem in contacts[activeChat].messages">
+                     <div class="contextMenu-css" v-if="contextMenu">
+
+                         <ul>
+                             <li><a href="">Message info</a></li>
+                             <li><a href="">Delate Message</a></li>
+                         </ul>
+                     </div>
+                    <span  
+                    @click.right="contextMenuChat(),log(window)"
+                    :class="elem.status" 
+                    v-for="elem in contacts[activeChat].messages"
+                    class="chat">
                         <span class="chat_text">
                             <i class="fas fa-caret-down"></i>
                             {{elem.text}} 

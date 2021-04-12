@@ -103,6 +103,9 @@ function init(){
                 text: '',
                 status: 'received',
             },
+            contextMenu:false,
+            top:'0px',
+            left:'0px',
 
         },
         // mounted: function () {
@@ -114,9 +117,8 @@ function init(){
                 this.activeChat=indice;
             },
             log:function(prova){
-                console.log(prova);
+                console.dir(prova);
             },
-            
             addMessages:function(element,stat){ 
                 if(element.length>0){
                     this.newMessageObj.text=element;
@@ -134,6 +136,12 @@ function init(){
             },
             delayMessages:function(){
                 setTimeout(this.answareMessages,1000);            
+            },
+            contextMenuChat:function(){
+                this.contextMenu =!this.contextMenu;
+            },
+            contextMenuChatRemove:function(){
+                this.contextMenu= false;
             },
         }
         

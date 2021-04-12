@@ -72,9 +72,10 @@ body{
 }
 .navInside i{
     color: #919191;
+    cursor: pointer;
 }
 .navInside_right i{
-    padding: 15px;
+    margin: 12px;
 }
 .sideRight .navInside, .textChat{
     border-left:1px solid #dddddd;
@@ -84,6 +85,7 @@ body{
     background-color: #9de1fe;
     height: 80px;
     padding: 5px;
+    cursor: pointer;
 }
 .notify>i{
     display: flex;
@@ -145,6 +147,9 @@ body{
     height: 50px;
     background-color: #ededed;
 }
+.textChat i{
+    cursor: pointer;
+}
 .textChat>*{
     align-self: center;
     padding:10px;
@@ -158,6 +163,7 @@ body{
     padding:0 15px ;
 }
 .mainChat{
+    position: relative;
     height: calc(100% - 100px);
     display: flex;
     flex-direction: column-reverse;
@@ -216,8 +222,8 @@ body{
     margin: 20px;
     padding: 0.8em;
     max-width: 80%;
-    /* flex-wrap: wrap; */
-    word-break: break-word
+    word-break: break-word;
+    cursor: pointer;
 }
 .sent{
     border-radius: 1em 0 1em 1em;
@@ -293,4 +299,22 @@ body{
     text-decoration: none;
     color:#07bc4c;
 }
+.contextMenu-css{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-color: white;
+    border-radius: 1em 1em 0 1em;
+}
+.contextMenu-css li{
+    list-style: none;
+    color:#9999;
+    padding: 0.5rem;
+}
+.contextMenu-css li a {
+    padding: 0.5rem;
+   
+   text-decoration: none;
+}
+
 

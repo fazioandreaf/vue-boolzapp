@@ -117,7 +117,7 @@ function init(){
                 this.activeChat=indice;
             },
             log:function(prova){
-                console.dir(prova);
+                console.log(prova);
             },
             addMessages:function(element,stat){ 
                 if(element.length>0){
@@ -142,6 +142,9 @@ function init(){
             },
             contextMenuChatRemove:function(){
                 this.contextMenu= false;
+            },
+            delateMessage: function(index){
+                this.contacts[this.activeChat].messages.splice(index);
             },
         }
         

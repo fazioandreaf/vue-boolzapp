@@ -301,20 +301,17 @@ body{
 }
 .contextMenu-css{
     position: absolute;
-    top: 100px;
-    left: 100px;
+    bottom: 3rem;
+    left: 50%;
     background-color: white;
     border-radius: 1em 1em 0 1em;
+    width: 191px;
 }
 .contextMenu-css li{
     list-style: none;
     color:#9999;
     padding: 0.5rem;
 }
-.contextMenu-css li a {
-    padding: 0.5rem;
-   
-   text-decoration: none;
 }
 
 

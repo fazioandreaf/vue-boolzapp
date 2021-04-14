@@ -11,23 +11,24 @@
     <script src="js/main.js"></script>
     <title>Boolzapp</title>
 </head>
-<body>
+<body :class="darkModeTogle?'light':'dark'">
     <!-- @click="contextMenuChatRemove" -->
-    <div @click="contextMenuChatRemove(activeMessage)" id="app">
-        <div class="up"></div>
-        <div class="container">
+    <div id="app" @click="contextMenuChatRemove(activeMessage)" >
+        <div class="up" :class="darkModeTogle?'light':'dark'"></div>
+        <div class="container" :class="darkModeTogle?'light':'dark'">
             <div class="sideLeft">
                 <div class="navInside">
                     <div class="navInside_left">
                         <img src="img/1.png" alt="">
                     </div>
                     <div class="navInside_right">
+                        <i class="fas fa-moon" @click="darkMode"></i>
                         <i class="fas fa-circle-notch"></i>
                         <i class="fas fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="notify" v-if="!activeBellStatus" @click='activeBell'>
+                <div class="notify" v-if="!activeBellStatus" @click='activeBell' >
                     <i class="fas fa-bell-slash" ></i>
                     <div>
                         <span>Ricevi notifiche di nuovi messaggi</span>
@@ -36,7 +37,8 @@
                 </div>
                 <div class="search">
                     <div class="search_input" >
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" v-if="search==''"></i>
+                        <i v-else class="fas fa-arrow-left " ></i>
                         <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search">
                     </div>    
                 </div>

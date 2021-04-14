@@ -136,6 +136,9 @@ body{
 .search_input input:focus{
  outline:none
 }
+.search .fa-arrow-left{
+    color: #9de1fe;
+}
 .chatList{
     background-color:white ;
     flex: 1;
@@ -200,12 +203,14 @@ body{
 }
 .chatUtent:hover,.chatUtent:focus{
     background-color: #ededed;
+    
 }
 .chatUtent-prevue{
     flex: 1;
     border-bottom: 1px solid #ededed;
 }
 .chatUtent-prevue span:nth-child(2){
+    font-size: 0.8rem;
     color: #666666 ;
 }
 .chatUtent-features, .chatUtent-prevue {
@@ -245,7 +250,7 @@ body{
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(50%,-36%);
+    transform: translate(48%,-39%);
     color: #dcf8c6;
     font-size: 2.5rem;
 }
@@ -253,7 +258,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(-50%,-36%);
+    transform: translate(-48%,-39%);
     color: white;
     font-size: 2.5rem;
 
@@ -322,6 +327,83 @@ body{
     color:#9999;
     padding: 0.5rem;
 }
+
+.dark.up {
+    background-color: #090e11;
+    height: 100vh;
 }
+.container.dark{
+    color: #b1b3b5
+}
+.container.dark .navInside{
+    background-color: #2a2f32;
+}
+.container.dark .sideRight .navInside{
+    border-left:1px solid #3b3f42;
+}
+.container.dark .notify{
+    background-color:#085373;
+}
+.container.dark .notify>i{
+    background-color:#7da5b4;
+    color: #085373;
+}
+.container.dark .search{
+    background-color:#131c21;
+}
+.container.dark .notify > div span:nth-child(2){
+    color:#b1b3b5;
+}
+.container.dark .search_input, .container.dark .search_input.search_input input{
+    background-color:#323739;
+}
+.container.dark .chatList{
+    background-color:#101d24;
+    color: #d4d5d7;
+}
+.container.dark .chatUtent-prevue span:nth-child(2){
+    color:#535d61;
+}
+
+.container.dark .chatUtent:hover, .container.dark .chatUtent:focus{
+    color: white;
+    background-color:#212d33;
+}
+.container.dark .chatUtent-prevue, .container.dark .chatUtent-features{
+    border-bottom: 1px solid #323739;
+
+}
+.container.dark .mainChat{
+    background-image: url(../img/sfondo-chat-dark.png);
+
+}
+.container.dark .received{
+    background-color: #202c33;
+    color: white;
+
+}
+.container.dark .received .chat_text i{
+    color: #202c33;
+}
+.container.dark .sent{
+    background-color: #113632;
+    color: white;
+
+}
+.container.dark .sent .chat_text i{
+    color: #113632;
+}
+.container.dark .textChat{
+    background-color: #202c33;
+    border-left: 1px solid #3b3f42;
+}
+.container.dark .textChat > input{
+    background-color: #33383b;
+    
+}
+
+
+
+
 
 

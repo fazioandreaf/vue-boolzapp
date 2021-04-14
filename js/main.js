@@ -91,6 +91,7 @@ function init(){
             activeChat:-1, 
             activeMessage:0, 
             activeBellStatus:false,
+            darkModeTogle:true,
             recive:'chatRecive',
             sent:'chatSent',
             search:'',
@@ -179,6 +180,10 @@ function init(){
             activeBell:function(){
                 this.activeBellStatus = !this.activeBellStatus
                 console.log(this.activeBellStatus);
+            },
+            darkMode:function(){
+            this.darkModeTogle= !this.darkModeTogle;
+            console.log(this.darkModeTogle);
             },
             //funzione per far inserire il colore delle spunte blu in ritardo
 

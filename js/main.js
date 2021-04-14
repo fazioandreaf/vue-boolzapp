@@ -96,12 +96,12 @@ function init(){
             // prova:0,
             newMessage:'',
             newMessageObj:{
-                date: '10/01/2020 15:30:55',
+                date:  new Date().getDate()+ ' / '+ new Date().getMonth()+ ' / '+new Date().getFullYear() +'  '+ new Date().getHours()+ ':'+ new Date().getMinutes()+ ':'+ new Date().getSeconds(),
                 text: '',
                 status: 'sent',
             },
             newMessageObjAns:{
-                date: '10/01/2020 15:30:55',
+                date:  new Date().getDate()+ ' / '+ new Date().getMonth()+ ' / '+new Date().getFullYear() +'  '+ new Date().getHours()+ ':'+ new Date().getMinutes()+ ':'+ new Date().getSeconds(),
                 text: '',
                 status: 'received',
             },

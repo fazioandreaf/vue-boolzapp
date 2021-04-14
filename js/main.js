@@ -120,22 +120,19 @@ function init(){
             left:'0px',
 
         },
-        // mounted: function () {
-        //         setInterval(this.addMessages('ok','received'),5000);
-        // },
         mounted: function () {
             // aggiugo un nuovo valore per ogni contatto, ovveor il silenzioso
             for(i=0;i<this.contacts.length;i++){
                 this.contacts[i].sound=false;
             }
         },
-
         'methods':{
+            //funzione di debug
+            log:function(elem){
+                console.log(elem);
+            },
             insertHeaderRight:function(indice){
                 this.activeChat=indice;
-            },
-            log:function(prova){
-                console.log(prova);
             },
             addMessages:function(element,stat){ 
                 if(element.length>0){
@@ -155,20 +152,23 @@ function init(){
                 this.newActiveChat=this.activeChat;
                 setTimeout(this.answareMessages,1000);            
             },
+            // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di defaul in tutti i messaggi per risparmiare memoria
             addBooleanOnContact:function(index){
                 activeMessage=index;
                 this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=true;
-                 console.log(activeMessage);
-                console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
-
+                console.log(activeMessage);
+                console.log(this.contacts[this.activeChat].messages);
             },
             contextMenuChat:function(index){
                 this.contacts[this.activeChat].messages[index].contextMenu=true;
                 console.log(this.contacts[this.activeChat]);
             },
             contextMenuChatRemove:function(){
-                console.log(this.contacts[this.activeChat].messages[this.activeMessage]);
-                this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
+                // if(this.activeChat>-1){
+                //     console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                //     this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
+                //     console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                // }
             },
             delateMessage: function(index){
                 this.contacts[this.activeChat].messages.splice(index);

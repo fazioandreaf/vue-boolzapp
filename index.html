@@ -59,8 +59,8 @@
                             <span><i v-if="elem.sound" class="fas fa-volume-mute"></i></span>
                         </div>
                     </div>
-                    <!-- v-if=(prova==contacts.length)
-                    <div v-else>{{prova= prova + 1}}</div> -->
+                    <!-- v-if=(prova==contacts.length) -->
+                    <!-- <div v-else>{{prova= prova + 1}}</div> -->
                 </div>
             </div>
             <div v-if="activeChat>=0" class="sideRight">
@@ -76,17 +76,18 @@
                 </div>
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
-                     <div class="contextMenu-css" v-if="contacts[activeChat].messages[activeMessage].contextMenu">
-                      <ul>
-                          <li>Message info</li>
-                          <li @click="delateMessage(index)"> Delate Message</li>
-                      </ul>
-                     </div>
                      <span  
                      @click.right="addBooleanOnContact(index)"
                      :class="elem.status" 
                      v-for="(elem,index) in contacts[activeChat].messages"
                      class="chat">
+                    <div class="contextMenu-css" v-if="contacts[activeChat].messages[activeMessage].contextMenu">
+                      <ul>
+                          <li>Message info</li>
+                          <li @click="delateMessage(index)"> Delate Message</li>
+                      </ul>
+                     </div>
+
                         <span class="chat_text">
                             <i class="fas fa-caret-down"></i>
                             {{elem.text}} 
@@ -94,9 +95,7 @@
                         <span class="chatData">{{elem.date.substring(elem.date.length-8,elem.date.length-3)}}
                             <i class="fas fa-check"></i>
                         </span>
-
                     </span> 
-                    <span v-else :class="sent">ciao</span>
                 </div>
                 <div class="textChat">
                     <i class="fas fa-grin"></i>

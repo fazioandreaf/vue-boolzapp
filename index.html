@@ -54,7 +54,7 @@
                         </div>
                         <div class="chatUtent-prevue">
                             <span class="name">{{elem.name}}</span>
-                            <span>{{elem.messages[0].text.substring(0,15)}}<span v-if="elem.messages[0].text.length>15">...</span></span>
+                            <span>{{elem.messages[0].text.substring(0,40)}}<span v-if="elem.messages[0].text.length>40"> ...</span></span>
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date.substring(elem.messages[0].date.length-8,elem.messages[0].date.length-3)}}</span>
@@ -110,7 +110,8 @@
                 </div>
             </div>
             <div v-else class="sfondo">
-                <img src="img/123.png" >
+                <img v-if="darkModeTogle" src="img/123.png" >
+                <img v-else src="img/smartphone-dark.png" >
                 <span class="title">Mantiene il telefono connesso</span>
                 <span>WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</span>
                 <div><i class="fas fa-desktop"></i>

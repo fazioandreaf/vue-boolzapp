@@ -399,8 +399,18 @@ body{
 }
 .container.dark .textChat > input{
     background-color: #33383b;
-    
 }
+.container.dark .sfondo{
+    color: #cfd0d3;
+    background-color: #263339;
+    border-bottom:10px solid #056162;
+}
+.container.dark .sfondo .title{
+    color: #cfd0d3;
+}
+
+
+
 
 
 

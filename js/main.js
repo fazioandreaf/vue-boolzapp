@@ -87,6 +87,7 @@ function init(){
                     ],
                 },
             ],
+            newActiveChat:-1,
             activeChat:-1, 
             activeMessage:0, 
             recive:'chatRecive',
@@ -126,31 +127,28 @@ function init(){
                     this.contacts[this.activeChat].messages.unshift(this.newMessageObj);
                     // oppure splice
                 }else console.log('Non hai scritto nessun messaggio');
+                this.newMessage='';
                 
             },
             answareMessages:function(){
-                    this.newMessageObjAns.text='ok';
-                    this.contacts[this.activeChat].messages.unshift(this.newMessageObjAns);
-                
-                this.newMessage='';
+                this.newMessageObjAns.text='ok';
+                this.contacts[this.newActiveChat].messages.unshift(this.newMessageObjAns);
             },
             delayMessages:function(){
+                this.newActiveChat=this.activeChat;
                 setTimeout(this.answareMessages,1000);            
             },
             addBooleanOnContact:function(index){
                 activeMessage=index;
-                const element=this.contacts[this.activeChat];
-                element.messages[index].contextMenu=true;
-                console.log(element);
-                console.log(element.messages[index]);
+                this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=true;
+                 console.log(activeMessage);
+                console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
 
             },
-            // contextMenuChat:function(index){
-            //     const element=this.contacts[this.activeChat];
-            //     element.messages[index].contextMenu=true;
-            //     console.log(this.contacts[this.activeChat]);
-                
-            // },
+            contextMenuChat:function(index){
+                this.contacts[this.activeChat].messages[index].contextMenu=true;
+                console.log(this.contacts[this.activeChat]);
+            },
             contextMenuChatRemove:function(){
                 console.log(this.contacts[this.activeChat].messages[this.activeMessage]);
                 this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;

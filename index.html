@@ -13,7 +13,7 @@
 </head>
 <body>
     <!-- @click="contextMenuChatRemove" -->
-    <div id="app">
+    <div @click="contextMenuChatRemove(activeMessage)" id="app">
         <div class="up"></div>
         <div class="container">
             <div class="sideLeft">
@@ -62,7 +62,7 @@
                     <div v-else>{{prova= prova + 1}}</div> -->
                 </div>
             </div>
-            <div v-if="activeChat>=0" @click="contextMenuChatRemove"class="sideRight">
+            <div v-if="activeChat>=0" class="sideRight">
                 <div class="navInside">
                     <div class="navInside_left">
                         <img :src="contacts[activeChat].avatar" class="circleImg">                 
@@ -75,6 +75,12 @@
                 </div>
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
+                     <div class="contextMenu-css" v-if="contacts[activeChat].messages[activeMessage].contextMenu">
+                      <ul>
+                          <li>Message info</li>
+                          <li @click="delateMessage(index)"> Delate Message</li>
+                      </ul>
+                     </div>
                      <span  
                      @click.right="addBooleanOnContact(index)"
                      :class="elem.status" 
@@ -87,12 +93,6 @@
                         <span class="chatData">{{elem.date.substring(11,16)}}
                             <i class="fas fa-check"></i>
                         </span>
-                        <div class="contextMenu-css" v-if="contacts[activeChat].messages[index].contextMenu">
-                         <ul>
-                             <li>Message info</li>
-                             <li @click="delateMessage(index)"> Delate Message</li>
-                         </ul>
-                        </div>
 
                     </span> 
                     <span v-else :class="sent">ciao</span>

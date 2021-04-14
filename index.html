@@ -13,7 +13,7 @@
 </head>
 <body :class="darkModeTogle?'light':'dark'">
     <!-- @click="contextMenuChatRemove" -->
-    <div id="app" @click="contextMenuChatRemove(activeMessage)" >
+    <div id="app" @click="contextMenuChatRemove" >
         <div class="up" :class="darkModeTogle?'light':'dark'"></div>
         <div class="container" :class="darkModeTogle?'light':'dark'">
             <div class="sideLeft">
@@ -100,7 +100,7 @@
                             {{elem.text}} 
                         </span>
                         <span class="chatData">{{elem.date.substring(elem.date.length-8,elem.date.length-3)}}
-                            <img class='colorCheckBlue' src="img/spunte.png" alt="">
+                            <img :class='delayColorCheck()' src="img/spunte.png" alt="">
                             <!-- <i class="fas fa-check"></i> -->
                         </span>
                     </span> 

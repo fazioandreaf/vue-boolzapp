@@ -99,6 +99,7 @@ function init(){
             sound:true,
             soundCheck:true,
             newMessage:'',
+            seconds:new Date().getSeconds(),
             newMessageObj:{
                 date:   new Date().getDate()+ ' / '+ 
                         new Date().getMonth()+ ' / '+
@@ -172,10 +173,14 @@ function init(){
                 console.log(this.contacts[this.activeChat]);
             },
             contextMenuChatRemove:function(){
-                if(this.activeChat>-1 &&this.indexSoundTogle>-1){
-                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                if(this.activeChat>-1 ){
+                    console.log('ciao');
+                    console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
                     this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
-                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                    console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                }
+                if(this.indexSoundTogle>-1){
+
                     this.contacts[this.indexSoundTogle].soundCheck=false;
                 }
             },
@@ -202,12 +207,18 @@ function init(){
             },
             //funzione per far inserire il colore delle spunte blu in ritardo
 
-            // color:function(){
-            //     return 
-            // },
-            // delayColorCheck:function(elem){
-            //     setTimeout(this.elem,3000)
-            // }
+            color:function(){
+                return 'colorCheckBlue'
+            },
+            delayColorCheck:function(){
+                setTimeout(this.color,3000)
+            },
+            correctData:function(maxnumber,what){
+                if(what<maxnumber){
+                    return'0'+what
+                }
+                else return what
+                }
         }
         
     })

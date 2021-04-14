@@ -128,7 +128,6 @@ function init(){
             for(i=0;i<this.contacts.length;i++){
                 this.contacts[i].sound=false;
             }
-            console.log(this.contacts);
         },
 
         'methods':{
@@ -174,6 +173,9 @@ function init(){
             delateMessage: function(index){
                 this.contacts[this.activeChat].messages.splice(index);
             },
+            soundTogle:function(index){
+                this.contacts[index].sound=!this.contacts[index].sound;
+            }
         }
         
     })

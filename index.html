@@ -42,10 +42,11 @@
                 </div>
                 <div v-if="" class="chatList">
                     <div 
+                    class="chatUtent" 
                     v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
                     v-for="(elem,index) in contacts" 
-                    class="chatUtent" 
-                    @click="insertHeaderRight(index)">
+                    @click="insertHeaderRight(index)"
+                    @click.right="soundTogle(index)">
                         <div class="chatUtent_img" >
                             <img class="circleImg" :src="elem.avatar" >
                         </div>
@@ -54,8 +55,8 @@
                             <span>{{elem.messages[0].text.substring(0,15)}}<span v-if="elem.messages[0].text.length>15">...</span></span>
                         </div>
                         <div class="chatUtent-features">
-                            <span>{{elem.messages[0].date.substring(11,16)}}</span>
-                            <span><i v-if="sound" class="fas fa-volume-mute"></i></span>
+                            <span>{{elem.messages[0].date.substring(elem.messages[0].date.length-8,elem.messages[0].date.length-3)}}</span>
+                            <span><i v-if="elem.sound" class="fas fa-volume-mute"></i></span>
                         </div>
                     </div>
                     <!-- v-if=(prova==contacts.length)

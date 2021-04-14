@@ -27,8 +27,8 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="notify">
-                    <i class="fas fa-bell-slash" @click=(log())></i>
+                <div class="notify" v-if="!activeBellStatus" @click='activeBell'>
+                    <i class="fas fa-bell-slash" ></i>
                     <div>
                         <span>Ricevi notifiche di nuovi messaggi</span>
                         <span>Attiva notifiche desktop <i class="fas fa-chevron-right"></i></span>
@@ -93,7 +93,8 @@
                             {{elem.text}} 
                         </span>
                         <span class="chatData">{{elem.date.substring(elem.date.length-8,elem.date.length-3)}}
-                            <i class="fas fa-check"></i>
+                            <img class='colorCheckBlue' src="img/spunte.png" alt="">
+                            <!-- <i class="fas fa-check"></i> -->
                         </span>
                     </span> 
                 </div>

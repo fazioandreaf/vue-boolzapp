@@ -90,10 +90,10 @@ function init(){
             newActiveChat:-1,
             activeChat:-1, 
             activeMessage:0, 
+            activeBellStatus:false,
             recive:'chatRecive',
             sent:'chatSent',
             search:'',
-            // prova:0,
             sound:0,
             newMessage:'',
             newMessageObj:{
@@ -175,7 +175,19 @@ function init(){
             },
             soundTogle:function(index){
                 this.contacts[index].sound=!this.contacts[index].sound;
-            }
+            },
+            activeBell:function(){
+                this.activeBellStatus = !this.activeBellStatus
+                console.log(this.activeBellStatus);
+            },
+            //funzione per far inserire il colore delle spunte blu in ritardo
+
+            // color:function(){
+            //     return 
+            // },
+            // delayColorCheck:function(elem){
+            //     setTimeout(this.elem,3000)
+            // }
         }
         
     })

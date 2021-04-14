@@ -45,6 +45,8 @@ body{
     }
 }
 .sideLeft{
+    display: flex;
+    flex-direction: column;
     flex:1.4;
     background-color: grey;
 }
@@ -136,7 +138,7 @@ body{
 }
 .chatList{
     background-color:white ;
-    height: calc(100% - 180px);
+    flex: 1;
     overflow-y: auto;
 }
 .textChat>input:focus {
@@ -258,12 +260,17 @@ body{
 
 }
 .chat .chatData{
-    
     padding-left: 10px;
     color: #87987a;
     font-size: 0.7em;
     align-self: flex-end;
-
+}
+.chatData> img{
+    height: 12px;
+    width: 12px;
+}
+.colorCheckBlue{
+    filter: invert(65%) sepia(80%) saturate(460%) hue-rotate(167deg) brightness(97%) contrast(97%);
 }
 .chat .chat_text{
     flex: 9;

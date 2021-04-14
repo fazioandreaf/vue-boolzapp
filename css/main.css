@@ -43,11 +43,14 @@ body{
     .sideLeft .navInside,.sideLeft .search_input {
         justify-content: center;
     }
+    .sfondo span{
+        display: none;
+    }
 }
 .sideLeft{
     display: flex;
     flex-direction: column;
-    flex:1.4;
+    flex-basis: 20%;
     background-color: grey;
 }
 .sideRight{
@@ -222,7 +225,9 @@ body{
     text-align: right;
     color: #666666 ;
     font-size: 0.8rem;
-
+}
+.active{
+    background-color: #ededed;
 }
 .chat {
     position: relative;

@@ -45,8 +45,9 @@
                 <div v-if="" class="chatList">
                     <div 
                     class="chatUtent" 
-                    v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
                     v-for="(elem,index) in contacts" 
+                    v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
+                    :class="elem==contacts[activeChat]?'active':''"
                     @click="insertHeaderRight(index)"
                     @click.right="soundTogle(index)">
                         <div class="chatUtent_img" >

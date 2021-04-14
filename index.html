@@ -49,7 +49,11 @@
                     v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
                     :class="elem==contacts[activeChat]?'active':''"
                     @click="insertHeaderRight(index)"
-                    @click.right="soundTogle(index)">
+                    @click.right="soundCheckTogle(index)">
+                        <div 
+                        class="contextMenuOnUtent" 
+                        v-if="elem.soundCheck"
+                        @click="soundTogle(index)">Disattiva notifiche</div>
                         <div class="chatUtent_img" >
                             <img class="circleImg" :src="elem.avatar" >
                         </div>

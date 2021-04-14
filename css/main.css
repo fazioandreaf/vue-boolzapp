@@ -183,6 +183,7 @@ body{
     overflow-y: auto;
 }
 .chatUtent{
+    position: relative;
     display: flex;
     cursor: pointer;
 }
@@ -333,6 +334,20 @@ body{
     padding: 0.5rem;
 }
 
+.contextMenuOnUtent{
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 10;
+    background-color: lightgrey;
+    width: 150px;
+    left: 100px;
+    bottom: 3rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+/* inizio della modalita dark */
 .dark.up {
     background-color: #090e11;
     height: 100vh;

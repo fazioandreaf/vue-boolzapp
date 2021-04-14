@@ -94,8 +94,10 @@ function init(){
             darkModeTogle:true,
             recive:'chatRecive',
             sent:'chatSent',
+            indexSoundTogle:-1,
             search:'',
-            sound:0,
+            sound:true,
+            soundCheck:true,
             newMessage:'',
             newMessageObj:{
                 date:   new Date().getDate()+ ' / '+ 
@@ -122,9 +124,10 @@ function init(){
 
         },
         mounted: function () {
-            // aggiugo un nuovo valore per ogni contatto, ovveor il silenzioso
+            // aggiugo un nuovo valore per ogni contatto, ovvero il silenzioso
             for(i=0;i<this.contacts.length;i++){
                 this.contacts[i].sound=false;
+                this.contacts[i].soundCheck=false;
             }
         },
         'methods':{
@@ -132,9 +135,11 @@ function init(){
             log:function(elem){
                 console.log(elem);
             },
+            //chat attiva a destra
             insertHeaderRight:function(indice){
                 this.activeChat=indice;
             },
+            //invio di un nuovo messaggio nella chat attiva
             addMessages:function(element,stat){ 
                 if(element.length>0){
                     this.newMessageObj.text=element;
@@ -145,15 +150,17 @@ function init(){
                 this.newMessage='';
                 
             },
+            //risposta automatica
             answareMessages:function(){
                 this.newMessageObjAns.text='ok';
                 this.contacts[this.newActiveChat].messages.unshift(this.newMessageObjAns);
             },
+            //delay della risposta automatica
             delayMessages:function(){
                 this.newActiveChat=this.activeChat;
                 setTimeout(this.answareMessages,1000);            
             },
-            // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di defaul in tutti i messaggi per risparmiare memoria
+            // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
             addBooleanOnContact:function(index){
                 activeMessage=index;
                 this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=true;
@@ -165,18 +172,26 @@ function init(){
                 console.log(this.contacts[this.activeChat]);
             },
             contextMenuChatRemove:function(){
-                // if(this.activeChat>-1){
-                //     console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
-                //     this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
-                //     console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
-                // }
+                if(this.activeChat>-1 &&this.indexSoundTogle>-1){
+                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                    this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
+                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                    this.contacts[this.indexSoundTogle].soundCheck=false;
+                }
             },
+            //funzione per eliminare il singolo messaggio
             delateMessage: function(index){
                 this.contacts[this.activeChat].messages.splice(index);
+            },
+            //disattivare l'audio della chat
+            soundCheckTogle:function(index){
+                this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
+                this.indexSoundTogle=index;
             },
             soundTogle:function(index){
                 this.contacts[index].sound=!this.contacts[index].sound;
             },
+            //disattivare le notifiche, div azzurro sopra la chat
             activeBell:function(){
                 this.activeBellStatus = !this.activeBellStatus
                 console.log(this.activeBellStatus);

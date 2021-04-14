@@ -94,14 +94,25 @@ function init(){
             sent:'chatSent',
             search:'',
             // prova:0,
+            sound:0,
             newMessage:'',
             newMessageObj:{
-                date:  new Date().getDate()+ ' / '+ new Date().getMonth()+ ' / '+new Date().getFullYear() +'  '+ new Date().getHours()+ ':'+ new Date().getMinutes()+ ':'+ new Date().getSeconds(),
+                date:   new Date().getDate()+ ' / '+ 
+                        new Date().getMonth()+ ' / '+
+                        new Date().getFullYear() +'  '+ 
+                        new Date().getHours()+ ':'+ 
+                        new Date().getMinutes()+ ':'+ 
+                        new Date().getSeconds(),
                 text: '',
                 status: 'sent',
             },
             newMessageObjAns:{
-                date:  new Date().getDate()+ ' / '+ new Date().getMonth()+ ' / '+new Date().getFullYear() +'  '+ new Date().getHours()+ ':'+ new Date().getMinutes()+ ':'+ new Date().getSeconds(),
+                date:   new Date().getDate()+ ' / '+ 
+                        new Date().getMonth()+ ' / '+
+                        new Date().getFullYear() +'  '+ 
+                        new Date().getHours()+ ':'+ 
+                        new Date().getMinutes()+ ':'+ 
+                        new Date().getSeconds(),
                 text: '',
                 status: 'received',
             },
@@ -112,6 +123,13 @@ function init(){
         // mounted: function () {
         //         setInterval(this.addMessages('ok','received'),5000);
         // },
+        mounted: function () {
+            // aggiugo un nuovo valore per ogni contatto, ovveor il silenzioso
+            for(i=0;i<this.contacts.length;i++){
+                this.contacts[i].sound=false;
+            }
+            console.log(this.contacts);
+        },
 
         'methods':{
             insertHeaderRight:function(indice){

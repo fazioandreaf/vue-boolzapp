@@ -55,7 +55,7 @@
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date.substring(11,16)}}</span>
-                            <span><i class="fas fa-volume-mute"></i></span>
+                            <span><i v-if="sound" class="fas fa-volume-mute"></i></span>
                         </div>
                     </div>
                     <!-- v-if=(prova==contacts.length)

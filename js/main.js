@@ -1,5 +1,5 @@
 function init(){
-    new Vue({
+    var vm = new Vue({
         'el':'#app',
         'data':{
             contacts: [
@@ -131,6 +131,7 @@ function init(){
                 this.contacts[i].soundCheck=false;
             }
         },
+        
         'methods':{
             //funzione di debug
             log:function(elem){
@@ -164,7 +165,7 @@ function init(){
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
             addBooleanOnContact:function(index){
                 activeMessage=index;
-                this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=true;
+                this.contacts[this.activeChat].$set(this.messages[this.activeMessage], 'contextMenu', true).contextMenu=true;
                 console.log(activeMessage);
                 console.log(this.contacts[this.activeChat].messages);
             },
@@ -175,9 +176,9 @@ function init(){
             contextMenuChatRemove:function(){
                 if(this.activeChat>-1 ){
                     console.log('ciao');
-                    console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
                     this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
-                    console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
                 }
                 if(this.indexSoundTogle>-1){
 
@@ -190,6 +191,7 @@ function init(){
             },
             //disattivare l'audio della chat
             soundCheckTogle:function(index){
+               
                 this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
                 this.indexSoundTogle=index;
             },
@@ -203,10 +205,9 @@ function init(){
             },
             darkMode:function(){
             this.darkModeTogle= !this.darkModeTogle;
-            console.log(this.darkModeTogle);
+            // console.log(this.darkModeTogle);
             },
             //funzione per far inserire il colore delle spunte blu in ritardo
-
             color:function(){
                 return 'colorCheckBlue'
             },
@@ -221,6 +222,8 @@ function init(){
                 }
         }
         
-    })
+    });
+    vm.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
+
 }
 document.addEventListener('DOMContentLoaded',init);

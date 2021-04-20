@@ -59,8 +59,9 @@
                             <img class="circleImg" :src="elem.avatar" >
                         </div>
                         <div class="chatUtent-prevue">
-                            <span class="name">{{elem.name}}</span>
-                            <span>{{elem.messages[0].text.substring(0,40)}}<span v-if="elem.messages[0].text.length>40"> ...</span></span>
+                            <span class="name" >{{elem.name}}</span>
+                            <!-- v-if="elem.message[0]" -->
+                            <span >{{elem.messages[0].text.substring(0,40)}}<span v-if="elem.messages[0].text.length>40"> ...</span></span>
                         </div>
                         <div class="chatUtent-features">
                             <span>{{elem.messages[0].date.substring(elem.messages[0].date.length-8,elem.messages[0].date.length-3)}}</span>
@@ -85,11 +86,11 @@
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
                      <span  
-                     @click.right="addBooleanOnContact(index)"
+                     @click.right="addBooleanOnContact(elem)"
                      :class="elem.status" 
                      v-for="(elem,index) in contacts[activeChat].messages"
                      class="chat">
-                    <div class="contextMenu-css" v-if="contacts[activeChat].messages[activeMessage].contextMenu">
+                    <div class="contextMenu-css" v-if="elem===activeMessage">
                       <ul>
                           <li>Message info</li>
                           <li @click="delateMessage(index)"> Delate Message</li>
@@ -109,9 +110,9 @@
                 <div class="textChat">
                     <i class="fas fa-grin"></i>
                     <i class="fas fa-paperclip"></i>
-                    <input v-model="newMessage" type="text" v-on:keyUp.enter="addMessages(newMessage,'sent'),delayMessages('ok',newMessage)"
+                    <input v-model="newMessage" type="text" v-on:keyUp.enter="addMessages(newMessage,'sent'),delayMessages()"
                     placeholder="Scrivi un messaggio">
-                    <i class="fas fa-paper-plane" @click="addMessages(newMessage,'sent'),delayMessages"></i>
+                    <i class="fas fa-paper-plane" @click="addMessages(newMessage,'sent'),delayMessages()"></i>
     
                 </div>
             </div>

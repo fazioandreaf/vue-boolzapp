@@ -91,10 +91,10 @@ function init(){
             activeChat:-1, 
             activeMessage:0, 
             activeBellStatus:false,
-            darkModeTogle:true,
+            darkModeToggle:true,
             recive:'chatRecive',
             sent:'chatSent',
-            indexSoundTogle:-1,
+            indexSoundToggle:-1,
             search:'',
             sound:true,
             soundCheck:true,
@@ -125,7 +125,7 @@ function init(){
 
         },
         mounted: function () {
-            // aggiugo un nuovo valore per ogni contatto, ovvero il silenzioso
+            // aggiungo un nuovo valore per ogni contatto, ovvero il silenzioso
             for(i=0;i<this.contacts.length;i++){
                 this.contacts[i].sound=false;
                 this.contacts[i].soundCheck=false;
@@ -155,7 +155,10 @@ function init(){
             //risposta automatica
             answareMessages:function(){
                 this.newMessageObjAns.text='ok';
-                this.contacts[this.newActiveChat].messages.unshift(this.newMessageObjAns);
+                // console.log(this.newMessageObjAns.date);
+                
+                // console.log(this.newMessageObj.date.substring(this.newMessageObj.date.length-5,this.newMessageObj.date.length-3));
+                // this.contacts[this.newActiveChat].messages.unshift(this.newMessageObjAns);
             },
             //delay della risposta automatica
             delayMessages:function(){
@@ -163,10 +166,9 @@ function init(){
                 setTimeout(this.answareMessages,1000);            
             },
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
-            addBooleanOnContact:function(index){
-                activeMessage=index;
-                this.contacts[this.activeChat].$set(this.messages[this.activeMessage], 'contextMenu', true).contextMenu=true;
-                console.log(activeMessage);
+            addBooleanOnContact:function(elem){
+                document.addEventListener('contextmenu', event => event.preventDefault());
+                this.activeMessage=elem;
                 console.log(this.contacts[this.activeChat].messages);
             },
             contextMenuChat:function(index){
@@ -174,15 +176,14 @@ function init(){
                 console.log(this.contacts[this.activeChat]);
             },
             contextMenuChatRemove:function(){
-                if(this.activeChat>-1 ){
-                    console.log('ciao');
+                this.activeMessage='';
+                    // console.log('ciao');
                     // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
-                    this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
-                    // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
-                }
-                if(this.indexSoundTogle>-1){
+                    // this.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
+                    // // console.log(this.contacts[this.activeChat].messages[this.activeMessage].contextMenu);
+                if(this.indexSoundToggle>-1){
 
-                    this.contacts[this.indexSoundTogle].soundCheck=false;
+                    this.contacts[this.indexSoundToggle].soundCheck=false;
                 }
             },
             //funzione per eliminare il singolo messaggio
@@ -190,12 +191,12 @@ function init(){
                 this.contacts[this.activeChat].messages.splice(index);
             },
             //disattivare l'audio della chat
-            soundCheckTogle:function(index){
+            soundCheckToggle:function(index){
                
                 this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
-                this.indexSoundTogle=index;
+                this.indexSoundToggle=index;
             },
-            soundTogle:function(index){
+            soundToggle:function(index){
                 this.contacts[index].sound=!this.contacts[index].sound;
             },
             //disattivare le notifiche, div azzurro sopra la chat
@@ -204,8 +205,8 @@ function init(){
                 console.log(this.activeBellStatus);
             },
             darkMode:function(){
-            this.darkModeTogle= !this.darkModeTogle;
-            // console.log(this.darkModeTogle);
+            this.darkModeToggle= !this.darkModeToggle;
+            // console.log(this.darkModeToggle);
             },
             //funzione per far inserire il colore delle spunte blu in ritardo
             color:function(){
@@ -214,8 +215,8 @@ function init(){
             delayColorCheck:function(){
                 setTimeout(this.color,3000)
             },
-            correctData:function(maxnumber,what){
-                if(what<maxnumber){
+            correctData:function(maxNumber,what){
+                if(what<maxNumber){
                     return'0'+what
                 }
                 else return what
@@ -223,7 +224,7 @@ function init(){
         }
         
     });
-    vm.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
+    // vm.contacts[this.activeChat].messages[this.activeMessage].contextMenu=false;
 
 }
 document.addEventListener('DOMContentLoaded',init);

@@ -166,10 +166,12 @@ function init(){
                 setTimeout(this.answareMessages,1000);            
             },
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
-            addBooleanOnContact:function(elem){
+            addBooleanOnContact:function(elem,index){
+                this.activeMessage=0, 
+
                 document.addEventListener('contextmenu', event => event.preventDefault());
                 this.activeMessage=elem;
-                console.log(this.contacts[this.activeChat].messages);
+                // console.log(this.contacts[this.activeChat].messages);
             },
             contextMenuChat:function(index){
                 this.contacts[this.activeChat].messages[index].contextMenu=true;

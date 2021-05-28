@@ -89,7 +89,7 @@
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
                      <span  
-                     @click.right="addBooleanOnContact(elem)"
+                     @click.right="addBooleanOnContact(elem,index)"
                      :class="elem.status" 
                      v-for="(elem,index) in contacts[activeChat].messages"
                      class="chat">

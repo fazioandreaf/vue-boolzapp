@@ -11,11 +11,11 @@
     <script src="js/main.js"></script>
     <title>Boolzapp</title>
 </head>
-<body :class="darkModeTogle?'light':'dark'">
+<body :class="darkModeToggle?'light':'dark'">
     <!-- @click="contextMenuChatRemove" -->
     <div id="app" @click="contextMenuChatRemove" >
-        <div class="up" :class="darkModeTogle?'light':'dark'"></div>
-        <div class="container" :class="darkModeTogle?'light':'dark'">
+        <div class="up" :class="darkModeToggle?'light':'dark'"></div>
+        <div class="container" :class="darkModeToggle?'light':'dark'">
             <div class="sideLeft">
                 <div class="navInside">
                     <div class="navInside_left">
@@ -38,7 +38,10 @@
                 <div class="search">
                     <div class="search_input" >
                         <i class="fas fa-search" v-if="search==''"></i>
-                        <i v-else class="fas fa-arrow-left " ></i>
+                        <a   v-else href="#" >
+
+                            <i class="fas fa-arrow-left " ></i>
+                        </a>
                         <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat" v-model="search">
                     </div>    
                 </div>
@@ -117,7 +120,7 @@
                 </div>
             </div>
             <div v-else class="sfondo">
-                <img v-if="darkModeTogle" src="img/123.png" >
+                <img v-if="darkModeToggle" src="img/123.png" >
                 <img v-else src="img/smartphone-dark.png" >
                 <span class="title">Mantiene il telefono connesso</span>
                 <span>WhatsApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</span>

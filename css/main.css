@@ -178,10 +178,11 @@ body{
     position: relative;
     height: calc(100% - 100px);
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
     background-image: url(../img/sfondo-chat.png);
     background-size: contain;
-    align-items: flex-end;
     overflow-y: auto;
 }
 .chatUtent{
@@ -306,7 +307,8 @@ body{
     padding: 20px 0;
 }
 .sfondo> img{
-    max-width: 80%;
+max-width: 390px;
+max-height: 418px;
 }
 .sfondo .title{
     color:#525252 ;

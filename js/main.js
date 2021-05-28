@@ -146,7 +146,7 @@ function init(){
                 if(element.length>0){
                     this.newMessageObj.text=element;
                     this.newMessageObj.status=stat;
-                    this.contacts[this.activeChat].messages.unshift(this.newMessageObj);
+                    this.contacts[this.activeChat].messages.push(this.newMessageObj);
                     // oppure splice
                 }else console.log('Non hai scritto nessun messaggio');
                 this.newMessage='';
@@ -158,7 +158,7 @@ function init(){
                 // console.log(this.newMessageObjAns.date);
                 
                 // console.log(this.newMessageObj.date.substring(this.newMessageObj.date.length-5,this.newMessageObj.date.length-3));
-                // this.contacts[this.newActiveChat].messages.unshift(this.newMessageObjAns);
+                this.contacts[this.newActiveChat].messages.push(this.newMessageObjAns);
             },
             //delay della risposta automatica
             delayMessages:function(){
@@ -202,7 +202,7 @@ function init(){
             //disattivare le notifiche, div azzurro sopra la chat
             activeBell:function(){
                 this.activeBellStatus = !this.activeBellStatus
-                console.log(this.activeBellStatus);
+                // console.log(this.activeBellStatus);
             },
             darkMode:function(){
             this.darkModeToggle= !this.darkModeToggle;
@@ -220,6 +220,9 @@ function init(){
                     return'0'+what
                 }
                 else return what
+                },
+                remove_search:function(){
+                    console.log(ciao);
                 }
         }
         

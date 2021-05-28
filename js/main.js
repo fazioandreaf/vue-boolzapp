@@ -190,7 +190,7 @@ function init(){
             },
             //funzione per eliminare il singolo messaggio
             delateMessage: function(index){
-                this.contacts[this.activeChat].messages.splice(index);
+                this.contacts[this.activeChat].messages.splice(index,1);
             },
             //disattivare l'audio della chat
             soundCheckToggle:function(index){

@@ -122,6 +122,7 @@ function init(){
             },
             top:'0px',
             left:'0px',
+            colorCheck:'gray',
 
         },
         mounted: function () {
@@ -130,6 +131,7 @@ function init(){
                 this.contacts[i].sound=false;
                 this.contacts[i].soundCheck=false;
             }
+            
         },
         watch:{
             search_value:()=>{
@@ -153,12 +155,13 @@ function init(){
                     this.newMessageObj.status=stat;
                     this.contacts[this.activeChat].messages.push(this.newMessageObj);
                     // oppure splice
-                }else console.log('Non hai scritto nessun messaggio');
+                }else ;
                 this.newMessage='';
                 
             },
             //risposta automatica
             answareMessages:function(){
+                
                 this.newMessageObjAns.text='ok';
                 // console.log(this.newMessageObjAns.date);
                 
@@ -167,8 +170,11 @@ function init(){
             },
             //delay della risposta automatica
             delayMessages:function(){
-                this.newActiveChat=this.activeChat;
-                setTimeout(this.answareMessages,1000);            
+                if(this.newMessageObj.text!=''){
+
+                    this.newActiveChat=this.activeChat;
+                    setTimeout(this.answareMessages,1000);            
+                }
             },
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
             addBooleanOnContact:function(elem,index){
@@ -217,11 +223,11 @@ function init(){
             // console.log(this.darkModeToggle);
             },
             //funzione per far inserire il colore delle spunte blu in ritardo
-            color:function(){
-                return 'colorCheckBlue'
+            color:function(){             
+                return this.colorCheck;
             },
             delayColorCheck:function(){
-                setTimeout(this.color,3000)
+                setTimeout(this.color,3000);
             },
             correctData:function(maxNumber,what){
                 if(what<maxNumber){

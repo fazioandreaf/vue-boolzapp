@@ -122,15 +122,15 @@ function init(){
             },
             top:'0px',
             left:'0px',
-            colorCheck:'gray',
+            colorCheck:false,
 
         },
         mounted: function () {
-            // aggiungo un nuovo valore per ogni contatto, ovvero il silenzioso
-            for(i=0;i<this.contacts.length;i++){
-                this.contacts[i].sound=false;
-                this.contacts[i].soundCheck=false;
-            }
+            // // aggiungo un nuovo valore per ogni contatto, ovvero il silenzioso
+            // for(i=0;i<this.contacts.length;i++){
+            //     this.contacts[i].sound=false;
+            //     this.contacts[i].soundCheck=false;
+            // }
             
         },
         watch:{
@@ -154,7 +154,6 @@ function init(){
                     this.newMessageObj.text=element;
                     this.newMessageObj.status=stat;
                     this.contacts[this.activeChat].messages.push(this.newMessageObj);
-                    // oppure splice
                 }else ;
                 this.newMessage='';
                 
@@ -171,7 +170,6 @@ function init(){
             //delay della risposta automatica
             delayMessages:function(){
                 if(this.newMessageObj.text!=''){
-
                     this.newActiveChat=this.activeChat;
                     setTimeout(this.answareMessages,1000);            
                 }
@@ -203,12 +201,22 @@ function init(){
             delateMessage: function(index){
                 this.contacts[this.activeChat].messages.splice(index,1);
             },
-            //disattivare l'audio della chat
-            soundCheckToggle:function(index){
-               
-                this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
-                this.indexSoundToggle=index;
+            // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
+
+            soundCheckToggle:function(elem){
+                this.activeChat=0, 
+
+                document.addEventListener('contextMenuOnUtent', event => event.preventDefault());
+                this.activeMessage=elem;
+
+                // this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
+                // this.indexSoundToggle=index;
             },
+            contextMenuOnUtent:function(index){
+                this.contacts[this.activeChat].messages[index].contextMenuOnUtent=true;
+                console.log(this.contacts[this.activeChat]);
+            },
+
             
             soundToggle:function(index){
                 this.contacts[index].sound=!this.contacts[index].sound;
@@ -226,8 +234,8 @@ function init(){
             color:function(){             
                 return this.colorCheck;
             },
-            delayColorCheck:function(){
-                setTimeout(this.color,3000);
+            delay_arrow_blue:function(){
+                setTimeout(this.log('ciao'),2000);
             },
             correctData:function(maxNumber,what){
                 if(what<maxNumber){

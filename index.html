@@ -54,11 +54,11 @@
                     v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
                     :class="elem==contacts[activeChat]?'active':''"
                     @click="insertHeaderRight(index),delay_arrow_blue()"
-                    @click.right="soundCheckToggle(elem)">
+                    @click.right="soundCheckToggle(elem,event)">
                         <div 
                         class="contextMenuOnUtent" 
-                        v-if="elem.soundCheck"
-                        @click="soundTogle(index)">Disattiva notifiche</div>
+                        v-if="elem===activeChatUtent"
+                        @click="soundToggle(index,event)">Disattiva notifiche</div>
                         <div class="chatUtent_img" >
                             <img class="circleImg" :src="elem.avatar" >
                         </div>
@@ -90,7 +90,7 @@
                 <div class="mainChat"  >
                      <!-- v-bind:class="{{{elem.status}}=='received'?[recive]:[sent]}" -->
                      <span  
-                     @click.right="addBooleanOnContact(elem,index)"
+                     @click.right="addBooleanOnContact(elem)"
                      :class="elem.status" 
                      v-for="(elem,index) in contacts[activeChat].messages"
                      class="chat">

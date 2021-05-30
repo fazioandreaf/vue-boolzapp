@@ -345,10 +345,10 @@ max-height: 418px;
     background-color: lightgrey;
     width: 150px;
     left: 100px;
-    bottom: 3rem;
     font-size: 0.8rem;
     border-radius: 1rem;
     text-align: center;
+    transition: all 4s ease-in-out 1s;
 }
 
 /* inizio della modalita dark */

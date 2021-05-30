@@ -88,7 +88,8 @@ function init(){
                 },
             ],
             newActiveChat:-1,
-            activeChat:-1, 
+            activeChat:-1,
+            activeChatUtent:-1,
             activeMessage:0, 
             activeBellStatus:false,
             darkModeToggle:true,
@@ -175,9 +176,8 @@ function init(){
                 }
             },
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
-            addBooleanOnContact:function(elem,index){
+            addBooleanOnContact:function(elem){
                 this.activeMessage=0, 
-
                 document.addEventListener('contextmenu', event => event.preventDefault());
                 this.activeMessage=elem;
                 // console.log(this.contacts[this.activeChat].messages);
@@ -203,11 +203,12 @@ function init(){
             },
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
 
-            soundCheckToggle:function(elem){
-                this.activeChat=0, 
+            soundCheckToggle:function(elem,event){
 
                 document.addEventListener('contextMenuOnUtent', event => event.preventDefault());
-                this.activeMessage=elem;
+                this.activeChatUtent=elem;
+                event.stopPropagation()
+
 
                 // this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
                 // this.indexSoundToggle=index;
@@ -218,8 +219,11 @@ function init(){
             },
 
             
-            soundToggle:function(index){
+            soundToggle:function(index,event){
                 this.contacts[index].sound=!this.contacts[index].sound;
+                this.activeChatUtent=-1;
+
+                event.stopPropagation()
             },
             //disattivare le notifiche, div azzurro sopra la chat
             activeBell:function(){

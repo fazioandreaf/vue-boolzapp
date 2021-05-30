@@ -385,6 +385,9 @@ max-height: 418px;
     background-color:#101d24;
     color: #d4d5d7;
 }
+.container.dark .chatUtent.active{
+    background-color:#223d4c;
+}
 .container.dark .chatUtent-prevue span:nth-child(2){
     color:#535d61;
 }

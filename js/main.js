@@ -229,12 +229,9 @@ function init(){
                 }
                 else return what
                 },
-                remove_search:(search)=>{
-                    console.log(search);
-                    search='';
-                    console.log(search);
+                remove_search:()=>{
 
-                    this.search=search;
+                    this.search='ciao';
                     console.log(this.search);
 
                 }

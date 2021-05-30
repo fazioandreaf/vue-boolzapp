@@ -124,6 +124,7 @@ function init(){
             top:'0px',
             left:'0px',
             colorCheck:false,
+            arrow_grey:[],
 
         },
         mounted: function () {
@@ -134,12 +135,7 @@ function init(){
             // }
             
         },
-        watch:{
-            search_value:()=>{
-                this.search=this.search;
-            }
-        },
-        
+      
         'methods':{
             //funzione di debug
             log:function(elem){
@@ -172,7 +168,7 @@ function init(){
             delayMessages:function(){
                 if(this.newMessageObj.text!=''){
                     this.newActiveChat=this.activeChat;
-                    setTimeout(this.answareMessages,1000);            
+                    setTimeout(this.answareMessages,5000);            
                 }
             },
             // aggiungere il valore del contextMenu nel singolo messaggio inviato, invece di metterlo di default in tutti i messaggi per risparmiare memoria
@@ -238,8 +234,19 @@ function init(){
             color:function(){             
                 return this.colorCheck;
             },
-            delay_arrow_blue:function(){
-                setTimeout(this.log('ciao'),2000);
+            arrow_blue:()=>{
+                this.arrow_grey= document.getElementsByClassName('grey');
+                for(let i=0;i<this.arrow_grey.length;i++){
+    
+                    this.arrow_grey[i].outerHTML='<img src="img/spunte-blue.png" alt="">';
+                    console.log(i);
+                }
+            },
+            delay_arrow_blue:function(time){
+                this.arrow_grey=[];
+                this.arrow_grey= document.getElementsByClassName('grey');
+                setTimeout(this.arrow_blue,time);
+
             },
             correctData:function(maxNumber,what){
                 if(what<maxNumber){

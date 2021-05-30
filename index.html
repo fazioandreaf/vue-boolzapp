@@ -53,7 +53,7 @@
                     v-for="(elem,index) in contacts" 
                     v-if="elem.name.toLowerCase().includes(search.toLowerCase()) " 
                     :class="elem==contacts[activeChat]?'active':''"
-                    @click="insertHeaderRight(index),delay_arrow_blue()"
+                    @click="insertHeaderRight(index),delay_arrow_blue(1)"
                     @click.right="soundCheckToggle(elem,event)">
                         <div 
                         class="contextMenuOnUtent" 
@@ -106,7 +106,7 @@
                             {{elem.text}} 
                         </span>
                         <span class="chatData">{{elem.date.substring(elem.date.length-8,elem.date.length-3)}}
-                            <img :class="colorCheck?grey:''" src="img/spunte-blue.png" alt="">
+                            <img class="grey" src="img/spunte.png" alt="">
                             <!-- <i class="fas fa-check"></i> -->
                         </span>
                     </span> 
@@ -114,7 +114,7 @@
                 <div class="textChat">
                     <i class="fas fa-grin"></i>
                     <i class="fas fa-paperclip"></i>
-                    <input v-model="newMessage" type="text" v-on:keyUp.enter="addMessages(newMessage,'sent'),delayMessages()"
+                    <input v-model="newMessage" type="text" v-on:keyUp.enter="addMessages(newMessage,'sent'),delayMessages(),delay_arrow_blue(2000),delay_arrow_blue(7000)"
                     placeholder="Scrivi un messaggio">
                     <i class="fas fa-paper-plane" @click="addMessages(newMessage,'sent'),delayMessages()"></i>
     

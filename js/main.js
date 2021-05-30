@@ -131,6 +131,11 @@ function init(){
                 this.contacts[i].soundCheck=false;
             }
         },
+        watch:{
+            search_value:()=>{
+                this.search=this.search;
+            }
+        },
         
         'methods':{
             //funzione di debug
@@ -198,6 +203,7 @@ function init(){
                 this.contacts[index].soundCheck=!this.contacts[index].soundCheck;
                 this.indexSoundToggle=index;
             },
+            
             soundToggle:function(index){
                 this.contacts[index].sound=!this.contacts[index].sound;
             },
@@ -223,8 +229,14 @@ function init(){
                 }
                 else return what
                 },
-                remove_search:function(){
-                    console.log(ciao);
+                remove_search:(search)=>{
+                    console.log(search);
+                    search='';
+                    console.log(search);
+
+                    this.search=search;
+                    console.log(this.search);
+
                 }
         }
         
